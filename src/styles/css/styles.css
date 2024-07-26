@@ -266,4 +266,23 @@ legend {
   font-size: 0;
   clear: both;
   content: "";
+}
+
+#header {
+  color: #e71c29;
+  background-color: yellow;
+}
+#header .inner {
+  display: flex;
+  justify-content: space-between;
+}
+#header .haeder-gnb {
+  display: flex;
+  justify-content: space-between;
+  margin: 30px;
+}
+#header .haeder-gnb a {
+  margin: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }/*# sourceMappingURL=styles.css.map */
