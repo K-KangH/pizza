@@ -1,10 +1,10 @@
-import './component/css/App.css';
-import Kuzi from './component/intro/Kuzi';
+// import './component/css/App.css';
+import Header from './components/Header';
 
 function App() {
     return (
-        <div className="intro-kuzi">
-            <Kuzi />
+        <div className="">
+            <Header />
         </div>
     );
 }

@@ -1,9 +1,0 @@
-.intro-kuzi {
-    p {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translateX(-50%) translateY(-100%);
-        font-size: 85px;
-    }
-}
