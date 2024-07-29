@@ -2,8 +2,8 @@ function Header() {
     return (
         <header id="header">
             <div className="inner head-in">
-                <div className="haeder-logo">
-                    <a href="#none">글자는 안보이게 될 예정 + before로 로고 넣기</a>
+                <div id="h-logo">
+                    <a href="#none">DominoPizza</a>
                 </div>
                 <div className="haeder-gnb">
                     <dl>
@@ -25,6 +25,9 @@ function Header() {
                 <div className="haeder-rnb">
                     <dl>
                         <a href="#none">회원가입</a>
+                    </dl>
+                    <dl>
+                        <a href="#none">로그인</a>
                     </dl>
                     <dl>
                         <a href="#none">주문하기</a>

@@ -2,21 +2,53 @@ $domino-red: #e71c29;
 $domino-blue: #2471b4;
 
 #header {
-    color: #e71c29;
-    background-color: yellow;
+    margin: 0 auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: rgba($color: #fff, $alpha: 0.3);
     .inner {
         display: flex;
         justify-content: space-between;
+        align-items: center;
     }
     .haeder-gnb {
         display: flex;
         justify-content: space-between;
-
         margin: 30px;
         a {
             margin: 30px;
             padding-top: 30px;
             padding-bottom: 30px;
+        }
+    }
+    .haeder-rnb {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        a {
+            gap: 30px;
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+    }
+    #h-logo {
+        position: relative;
+        height: 100px;
+        width: 180px;
+        a {
+            display: block;
+            text-indent: -9999px;
+            &::before {
+                position: absolute;
+                top: -10%;
+                left: 0;
+                height: 100px;
+                width: 180px;
+                background-size: contain; /* 이미지 크기를 부모 요소에 맞춤 */
+                content: '';
+                background-image: url('../img/logoself.svg');
+                background-repeat: no-repeat; /* 이미지가 반복되지 않도록 설정 */
+            }
         }
     }
 }

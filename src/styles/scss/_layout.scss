@@ -1,0 +1,25 @@
+// 페이지의 레이아웃 영역
+.inner {
+    padding-left: $spacer-5;
+    padding-right: $spacer-5;
+}
+
+@include tabletMore {
+    .inner {
+        width: 100%;
+        max-width: calc(1200px + #{$spacer-7 * 2});
+        margin: 0 auto;
+    }
+}
+#wrap {
+    @include flex-layout($fd: column, $ai: stretch);
+    min-height: 100vh;
+}
+
+#container {
+    flex: 1;
+}
+
+#footer {
+    padding: 50px 0;
+}

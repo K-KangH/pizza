@@ -218,3 +218,17 @@ $spacer-7: 2.4rem;
 $spacer-8: 3.2rem;
 $spacer-9: 4rem;
 $spacer-10: 4.8rem;
+
+// 1200px over
+@mixin tabletMore {
+    @media (min-width: $breakpoint-l) {
+        @content;
+    }
+}
+
+@mixin flex-layout($d: flex, $ai: flex-start, $jc: flex-start, $fd: row) {
+    display: $d;
+    align-items: $ai;
+    justify-content: $jc;
+    flex-direction: $fd;
+}

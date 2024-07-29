@@ -1,5 +1,6 @@
 @import 'variables';
 @import 'fonts';
+@import 'layout';
 @import 'reset';
 
 @import 'contents';
@@ -11,3 +12,17 @@
 
 // pattern
 // @import 'pattern/include';
+// 임시
+.demo {
+    z-index: 100;
+    display: block;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    // transform: translate(-50%, -50%);
+    background-color: orange;
+    // border-radius: 30px;
+}
+// .sec {
