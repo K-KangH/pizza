@@ -1,62 +1,13 @@
-// body {
-//     height: 200vh;
-//     //background-image: url(../img/logoself.png);
-// }
-
-.html,
-body {
-    width: 100%;
-    height: 300vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    // background-color: aqua;
-}
-
-.pin01 {
-    width: 50vw;
-    height: 50vh;
-    // background-color: red;
-    // position: fixed;
-    left: 0;
-    top: 0;
-    // transform: translate(50%, 50%);
-
-    overflow: hidden;
-    box-sizing: border-box;
-}
-
-.demo {
-    z-index: 100;
-    display: block;
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    // transform: translate(-50%, -50%);
-    // background-color: orange;
-    // border-radius: 30px;
-}
-// .sec {
-//     // top: 50%;
-//     // left: 50%;
-// }
-
 .sec-intro {
-    border: 5px solid black;
-    position: relative;
-    width: 30px;
-    height: 30px;
-    top: 50%;
-    left: 50%;
-    // transform: translateX(-40px) translateY(50px);
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    // top: 60%;
+    // left: 50%;
+    top: 60vh;
+    left: 50vw;
+    // background-color: aqua; //위치확인용
     transform: translateX(-50%) translateY(-50%);
-    .logoboxs {
-        position: absolute;
-        top: -100px;
-        scale: 1.5;
-    }
     .logobox {
         position: absolute;
         width: 80px;
@@ -67,8 +18,8 @@ body {
     }
     .logobox-red {
         position: relative;
-        top: 0;
-        left: 50%;
+        // top: 0;
+        // left: 50%;
         transform: translateX(-140px) translateY(-20px) rotate(45deg);
         transform-origin: center center;
         border-top-left-radius: 12px; /* 왼쪽 위 모서리 */
@@ -90,8 +41,8 @@ body {
     }
     .logobox-blue {
         position: relative;
-        top: 0;
-        left: 50%;
+        // top: 0;
+        // left: 50%;
         transform: translateX(-200px) translateY(-40px) rotate(45deg);
         transform-origin: center center;
         background-color: $domino-blue;
@@ -137,4 +88,13 @@ body {
     font-weight: 900;
     font-stretch: extra-expanded;
     letter-spacing: -6px;
+}
+
+.pin01 {
+    height: 100vh;
+    width: 100vw;
+}
+
+.demo {
+    height: 3000px;
 }

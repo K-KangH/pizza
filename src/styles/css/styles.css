@@ -348,47 +348,13 @@ legend {
   background-repeat: no-repeat; /* 이미지가 반복되지 않도록 설정 */
 }
 
-.html,
-body {
-  width: 100%;
-  height: 300vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.pin01 {
-  width: 50vw;
-  height: 50vh;
-  left: 0;
-  top: 0;
-  overflow: hidden;
-  box-sizing: border-box;
-}
-
-.demo {
-  z-index: 100;
-  display: block;
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;
-}
-
 .sec-intro {
-  border: 5px solid black;
-  position: relative;
-  width: 30px;
-  height: 30px;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
-}
-.sec-intro .logoboxs {
   position: absolute;
-  top: -100px;
-  scale: 1.5;
+  width: 500px;
+  height: 500px;
+  top: 60vh;
+  left: 50vw;
+  transform: translateX(-50%) translateY(-50%);
 }
 .sec-intro .logobox {
   position: absolute;
@@ -400,8 +366,6 @@ body {
 }
 .sec-intro .logobox-red {
   position: relative;
-  top: 0;
-  left: 50%;
   transform: translateX(-140px) translateY(-20px) rotate(45deg);
   transform-origin: center center;
   border-top-left-radius: 12px; /* 왼쪽 위 모서리 */
@@ -423,8 +387,6 @@ body {
 }
 .sec-intro .logobox-blue {
   position: relative;
-  top: 0;
-  left: 50%;
   transform: translateX(-200px) translateY(-40px) rotate(45deg);
   transform-origin: center center;
   background-color: #2471b4;
@@ -469,13 +431,11 @@ body {
   letter-spacing: -6px;
 }
 
-.demo {
-  z-index: 100;
-  display: block;
-  position: absolute;
-  width: 100vw;
+.pin01 {
   height: 100vh;
-  top: 0;
-  left: 0;
-  background-color: orange;
+  width: 100vw;
+}
+
+.demo {
+  height: 3000px;
 }/*# sourceMappingURL=styles.css.map */

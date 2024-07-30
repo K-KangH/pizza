@@ -4,15 +4,22 @@ import Intro from './components/Intro';
 
 function App() {
     return (
-        <div>
+        <div
+            id="intro"
+            style={{
+                position: 'relative',
+                height: '100vh',
+                width: '100vw',
+            }}
+        >
             <div className="demo"></div>
-            <div id="intro">
-                <Intro />
-            </div>
-            {/* <div id="warp">
-                <Header />
-            </div> */}
+            <Intro />
+            <div className="demo"></div>
         </div>
+
+        // {/* <div id="warp">
+        //     <Header />
+        // </div> */}
     );
 }
 
