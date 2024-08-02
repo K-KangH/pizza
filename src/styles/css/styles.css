@@ -24,7 +24,7 @@
   min-height: 100vh;
 }
 
-#container {
+#content {
   flex: 1;
 }
 
@@ -296,65 +296,17 @@ legend {
   content: "";
 }
 
-#header {
-  margin: 0 auto;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  background-color: rgba(255, 255, 255, 0.3);
-}
-#header .inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-#header .haeder-gnb {
-  display: flex;
-  justify-content: space-between;
-  margin: 30px;
-}
-#header .haeder-gnb a {
-  margin: 30px;
-  padding-top: 30px;
-  padding-bottom: 30px;
-}
-#header .haeder-rnb {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-}
-#header .haeder-rnb a {
-  gap: 30px;
-  padding-top: 30px;
-  padding-bottom: 30px;
-}
-#header #h-logo {
-  position: relative;
-  height: 100px;
-  width: 180px;
-}
-#header #h-logo a {
-  display: block;
-  text-indent: -9999px;
-}
-#header #h-logo a::before {
-  position: absolute;
-  top: -10%;
-  left: 0;
-  height: 100px;
-  width: 180px;
-  background-size: contain; /* 이미지 크기를 부모 요소에 맞춤 */
-  content: "";
-  background-image: url("../img/logoself.svg");
-  background-repeat: no-repeat; /* 이미지가 반복되지 않도록 설정 */
+.non-active {
+  display: none;
 }
 
 .sec-intro {
   position: absolute;
   width: 500px;
   height: 500px;
-  top: 60vh;
-  left: 50vw;
-  transform: translateX(-50%) translateY(-50%);
+  top: 50%;
+  left: 50%;
+  transform: translateX(-60%) translateY(-50%);
 }
 .sec-intro .logobox {
   position: absolute;
@@ -419,7 +371,7 @@ legend {
 }
 
 .logotext-n {
-  transform: translateX(30px) translateY(-75px);
+  transform: translateX(5%) translateY(10%);
   display: flex;
   justify-content: center;
   font-size: 9rem;
@@ -431,11 +383,73 @@ legend {
   letter-spacing: -6px;
 }
 
-.pin01 {
-  height: 100vh;
-  width: 100vw;
-}
-
 .demo {
   height: 3000px;
+}
+
+#header {
+  margin: 0 auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+#header .inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#header .haeder-gnb {
+  display: flex;
+  justify-content: space-between;
+  margin: 30px;
+}
+#header .haeder-gnb a {
+  margin: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+#header .haeder-rnb {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+#header .haeder-rnb a {
+  gap: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+#header #h-logo {
+  position: relative;
+  height: 100px;
+  width: 180px;
+}
+#header #h-logo a {
+  display: block;
+  text-indent: -9999px;
+}
+#header #h-logo a::before {
+  position: absolute;
+  top: -10%;
+  left: 0;
+  height: 100px;
+  width: 180px;
+  background-size: contain; /* 이미지 크기를 부모 요소에 맞춤 */
+  content: "";
+  background-image: url("../img/logoself.svg");
+  background-repeat: no-repeat; /* 이미지가 반복되지 않도록 설정 */
+}
+
+#video-container {
+  display: block;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 56.25%;
+  overflow: hidden;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }/*# sourceMappingURL=styles.css.map */
