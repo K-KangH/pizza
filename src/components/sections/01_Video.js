@@ -1,8 +1,8 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import YouTube from 'react-youtube';
 import { useInView } from 'react-intersection-observer';
 
-function Video() {
+function Video({ introDone }) {
     const { ref: inViewRef, inView: isVisible } = useInView({
         threshold: 0.7,
     });
@@ -28,20 +28,19 @@ function Video() {
             playlist: 'WqNBIkFOoE4',
         },
     };
-    useEffect(
-        (introDone) => {
+    useEffect(() => {
+        if (introDone) {
             if (isVisible) {
                 console.log(isVisible);
                 playerRef.current.mute();
                 playerRef.current.playVideo();
             } else {
                 console.log('안보임 ㅎ!');
-                // playerRef.current.mute();
-                // playerRef.current.pauseVideo();
+                playerRef.current.mute();
+                playerRef.current.pauseVideo();
             }
-        },
-        [isVisible]
-    );
+        }
+    }, [isVisible]);
     return (
         <>
             <section

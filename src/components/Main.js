@@ -1,9 +1,10 @@
 import Video from './sections/01_Video';
+import React, { useState } from 'react';
 
-function Main() {
+function Main({ introDone }) {
     return (
         <section id="main">
-            <Video />
+            <Video introDone={introDone} />
         </section>
     );
 }

@@ -5,7 +5,7 @@ import { TextPlugin } from 'gsap/TextPlugin';
 
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
-function Intro({ introRef, contentRef, swIntroDone }) {
+function Intro({ introRef, contentRef, introDone }) {
     const rBR = useRef(null);
     const bBR = useRef(null);
     const tBR = useRef(null);
@@ -77,7 +77,7 @@ function Intro({ introRef, contentRef, swIntroDone }) {
                 onComplete: () => {
                     done();
                     console.log('intro done');
-                    // gsap.kill();
+                    introDone();
                 },
             });
         }, component);

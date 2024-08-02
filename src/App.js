@@ -1,17 +1,17 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import './styles/css/styles.css';
 import Header from './components/Header';
 import Intro from './components/Intro';
 import Main from './components/Main';
 
 function App() {
-    // const [showIntro, setShowIntro] = useState(true);
+    const [introDone, setIntroDone] = useState(false);
     const contentRef = useRef(null);
     const introRef = useRef(null);
 
-    // const handleShowIntro = () => {
-    //     setShowIntro(true);
-    // };
+    const handleintroDone = () => {
+        setIntroDone(true);
+    };
 
     // const handleHideIntro = () => {
     //     setShowIntro(false);
@@ -31,7 +31,7 @@ function App() {
                 <Intro
                     contentRef={contentRef}
                     introRef={introRef}
-                    // onComplete={handleHideIntro}
+                    introDone={handleintroDone}
                 />
             </div>
             <div
@@ -43,7 +43,7 @@ function App() {
                     contentRef={contentRef}
                     introRef={introRef}
                 />
-                <Main />
+                <Main introDone={introDone} />
             </div>
         </div>
     );
