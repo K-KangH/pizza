@@ -1,23 +1,21 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import YouTube from 'react-youtube';
 import { useInView } from 'react-intersection-observer';
 
 function Video({ introDone }) {
     const { ref: inViewRef, inView: isVisible } = useInView({
-        threshold: 0.5,
+        threshold: 0.6,
     });
 
     const playerRef = useRef(null);
 
     const onReady = (event) => {
         playerRef.current = event.target;
-        // console.log('yt이미 준비되서 재생시작함!');
-        // event.target.mute();
-        // event.target.playVideo();
     };
+
     const opts = {
         height: '80%',
-        width: '100%',
+        width: '95%',
         playerVars: {
             autoplay: 1,
             rel: 0,
@@ -31,59 +29,36 @@ function Video({ introDone }) {
     useEffect(() => {
         if (introDone) {
             if (isVisible) {
-                setTimeout(() => {
-                    playerRef.current.mute();
-                    playerRef.current.playVideo();
-                }, 500);
+                playerRef.current.mute();
+                playerRef.current.playVideo();
             } else {
                 playerRef.current.mute();
                 playerRef.current.pauseVideo();
             }
         }
     }, [isVisible]);
+
     return (
         <>
             <section
                 id="video-container"
                 ref={inViewRef}
+                style={{ display: 'block' }}
             >
                 <YouTube
                     videoId="WqNBIkFOoE4"
-                    style={{ height: '100vh' }}
+                    style={{
+                        display: 'flex',
+                        alignItems: 'top',
+                        justifyContent: 'center',
+                        height: '100vh',
+                        width: '100%',
+                    }}
                     opts={opts}
                     onReady={onReady}
                     ref={playerRef}
                 />
             </section>
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br /> <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
         </>
     );
 }

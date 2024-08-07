@@ -12,8 +12,21 @@ function Intro({ introRef, contentRef, introDone }) {
     const component = useRef(null);
 
     const done = () => {
-        introRef.current.style.display = 'none';
-        contentRef.current.style.opacity = '1';
+        const test = document.querySelector('body');
+        const tl = gsap.timeline();
+        tl.set(introRef.current, { display: 'none' })
+            .set(
+                test,
+                {
+                    height: '100vh',
+                    overflowY: 'hidden',
+                    onComplete: () => {
+                        gsap.set(test, { height: 'auto', overflowY: 'visible', delay: 1 });
+                    },
+                },
+                '<'
+            )
+            .to(contentRef.current, { opacity: 1, duration: 1.5 });
     };
 
     useEffect(() => {
@@ -36,7 +49,8 @@ function Intro({ introRef, contentRef, introDone }) {
                     scrub: 0.75,
                     pin: true,
                     anticipatePin: 1,
-                    markers: true,
+                    // markers: true,
+                    once: true,
                 },
             });
 
@@ -76,15 +90,17 @@ function Intro({ introRef, contentRef, introDone }) {
                 delay: 0,
                 onComplete: () => {
                     window.scrollTo(0, 0);
-
+                    introDone();
                     done();
                     console.log('intro done');
-                    introDone();
+                    tl.kill();
                 },
             });
         }, component);
 
-        return () => ctx.revert(); // cleanup!
+        return () => {
+            ctx.revert(); // cleanup!
+        };
     }, []);
 
     return (

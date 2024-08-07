@@ -8,10 +8,10 @@ function Slider() {
     const slideCount = 5;
 
     return (
-        <section style={{ width: '80vw', position: 'absolute', left: '50%', transform: 'translateX(-50%)' }}>
+        <section style={{ width: '80%', position: 'absolute', left: '50%', transform: 'translateX(-50%)' }}>
             <Swiper
-                spaceBetween={50}
-                slidesPerView={3}
+                spaceBetween={100}
+                slidesPerView={1}
                 centeredSlides={true}
                 loop={true}
                 navigation={true}
@@ -36,7 +36,8 @@ function Slider() {
                                 display: 'flex',
                                 justifyContent: 'center',
                                 alignItems: 'center',
-                                height: '300px',
+                                height: '80vh',
+                                // width: '30vw',
                                 fontSize: '24px',
                                 backgroundColor: 'yellowgreen',
                             }}

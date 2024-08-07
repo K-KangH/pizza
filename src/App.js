@@ -25,7 +25,7 @@ function App() {
                 style={{
                     position: 'relative',
                     height: '100vh',
-                    width: '100vw',
+                    width: '100%',
                 }}
             >
                 <Intro
@@ -34,6 +34,7 @@ function App() {
                     introDone={handleintroDone}
                 />
             </div>
+
             <div
                 id="content"
                 ref={contentRef}
@@ -42,6 +43,7 @@ function App() {
                 <Header
                     contentRef={contentRef}
                     introRef={introRef}
+                    introDone={introDone}
                 />
                 <Main introDone={introDone} />
             </div>
