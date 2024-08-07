@@ -36,7 +36,7 @@ function Intro({ introRef, contentRef, introDone }) {
                     scrub: 0.75,
                     pin: true,
                     anticipatePin: 1,
-                    // markers: true,
+                    markers: true,
                 },
             });
 
@@ -75,6 +75,8 @@ function Intro({ introRef, contentRef, introDone }) {
                 scale: 0.2,
                 delay: 0,
                 onComplete: () => {
+                    window.scrollTo(0, 0);
+
                     done();
                     console.log('intro done');
                     introDone();

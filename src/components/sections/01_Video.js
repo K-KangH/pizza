@@ -4,7 +4,7 @@ import { useInView } from 'react-intersection-observer';
 
 function Video({ introDone }) {
     const { ref: inViewRef, inView: isVisible } = useInView({
-        threshold: 0.7,
+        threshold: 0.5,
     });
 
     const playerRef = useRef(null);
@@ -31,11 +31,11 @@ function Video({ introDone }) {
     useEffect(() => {
         if (introDone) {
             if (isVisible) {
-                console.log(isVisible);
-                playerRef.current.mute();
-                playerRef.current.playVideo();
+                setTimeout(() => {
+                    playerRef.current.mute();
+                    playerRef.current.playVideo();
+                }, 500);
             } else {
-                console.log('안보임 ㅎ!');
                 playerRef.current.mute();
                 playerRef.current.pauseVideo();
             }
