@@ -36,7 +36,7 @@ function Video({ introDone }) {
                 playerRef.current.pauseVideo();
             }
         }
-    }, [isVisible]);
+    }, [isVisible, introDone]);
 
     return (
         <>

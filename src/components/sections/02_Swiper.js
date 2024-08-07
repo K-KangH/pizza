@@ -8,7 +8,10 @@ function Slider() {
     const slideCount = 5;
 
     return (
-        <section style={{ width: '80%', position: 'absolute', left: '50%', transform: 'translateX(-50%)' }}>
+        <section
+            id="slider-container"
+            style={{ width: '80%', position: 'absolute', left: '50%', transform: 'translateX(-50%)' }}
+        >
             <Swiper
                 spaceBetween={100}
                 slidesPerView={1}
