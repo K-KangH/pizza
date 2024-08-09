@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <title>GSAP ScrollTrigger Example</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.2/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.2/ScrollTrigger.min.js"></script>
+        <style>
+            body {
+                height: 200vh; /* 스크롤을 테스트하기 위해 페이지 높이를 크게 설정 */
+                margin: 0;
+                padding: 0;
+                overflow-x: hidden;
+            }
+            .message {
+                font-size: 2em;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: auto; /* 가로 크기 자동 조정 */
+                height: 100px; /* 높이를 100px로 제한 */
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                box-sizing: border-box; /* 패딩과 보더를 포함하여 크기를 계산 */
+                opacity: 1;
+                transition: opacity 0.5s ease; /* opacity 전환 애니메이션 */
+            }
+            .btn-close {
+                position: absolute;
+                top: -10px;
+                right: -30px; /* 수정된 위치 */
+                width: 30px;
+                height: 30px;
+                cursor: pointer;
+            }
+            .btn-close::before,
+            .btn-close::after {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                background-color: black;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) rotate(45deg);
+            }
+            .btn-close::after {
+                transform: translate(-50%, -50%) rotate(-45deg);
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <div
+                class="message"
+                id="statusMessage"
+            ></div>
+            대기중
+            <div
+                class="btn-close"
+                id="closeButton"
+            ></div>
+        </div>
+
+        <script>
+            gsap.registerPlugin(ScrollTrigger);
+
+            const message = document.getElementById('statusMessage');
+            const closeButton = document.getElementById('closeButton');
+            let isScrollEnd = false;
+
+            // 닫기 버튼 클릭 시 메시지 숨기기
+            closeButton.addEventListener('click', () => {
+                message.style.opacity = '0';
+            });
+
+            // 텍스트 플로팅 애니메이션
+            gsap.to('.message', {
+                y: '-=30', // 중앙 위로 30px 이동
+                duration: 1.5,
+                ease: 'power1.inOut', // 애니메이션의 이징을 설정
+                repeat: -1,
+                yoyo: true,
+            });
+
+            // 스크롤 트리거 설정
+            ScrollTrigger.create({
+                trigger: document.body,
+                start: 'top top',
+                end: 'bottom bottom',
+                onUpdate: (self) => {
+                    if (self.isActive && !isScrollEnd) {
+                        message.textContent = '스크롤중';
+                    }
+                },
+                onEnter: () => {
+                    message.textContent = '스크롤중';
+                    isScrollEnd = false;
+                },
+                onLeaveBack: () => {
+                    message.textContent = '스크롤중';
+                    isScrollEnd = false;
+                },
+                onEnterBack: () => {
+                    message.textContent = '스크롤중';
+                    isScrollEnd = false;
+                },
+                onLeave: () => {
+                    message.textContent = '스크롤끝';
+                    isScrollEnd = true;
+                },
+                markers: true, // 디버그용 마커
+            });
+
+            // 스크롤 이벤트를 사용하여 스크롤이 멈춘 상태 감지
+            let scrollTimeout;
+            window.addEventListener('scroll', () => {
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(() => {
+                    if (!isScrollEnd) {
+                        message.textContent = '대기중';
+                    }
+                }, 200); // 스크롤이 멈춘 후 200ms 후에 "대기중"으로 변경 (스크롤 끝 상태가 아닐 때만)
+            });
+        </script>
+    </body>
+</html>
