@@ -28,30 +28,30 @@ function Header({ introDone }) {
                     </dl>
                     <dl>
                         <dt>
-                            <a href="#none">STORY</a>
+                            <a href="#slider-container">STORY</a>
                         </dt>
                     </dl>
                 </div>
                 <div className="haeder-rnb">
                     <dl>
-                        <a href="#none">회원가입</a>
+                        <a href="/register">회원가입</a>
                     </dl>
                     <dl>
-                        <a href="#none">로그인</a>
+                        <a href="/login">로그인</a>
                     </dl>
                     <dl>
-                        <a href="#none">주문하기</a>
+                        <a href="/OrderCreate">주문하기</a>
                     </dl>
                 </div>
                 <div className="haeder-rnb">
                     <dl>
-                        <a href="#none">XXX님 환영합니다.</a>
+                        <span>XXX님 환영합니다.</span>
                     </dl>
                     <dl>
-                        <a href="#none">내 정보</a>
+                        <a href="/mypage">내 정보</a>
                     </dl>
                     <dl>
-                        <a href="#none">주문하기</a>
+                        <a href="/OrderCreate">주문하기</a>
                     </dl>
                 </div>
             </div>

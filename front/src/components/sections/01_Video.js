@@ -9,7 +9,7 @@ function Video({ introDone }) {
 
     const playerRef = useRef(null);
 
-    const onReady = (event) => {
+    const onReady = event => {
         playerRef.current = event.target;
     };
 
@@ -17,7 +17,7 @@ function Video({ introDone }) {
         height: '80%',
         width: '95%',
         playerVars: {
-            autoplay: 1,
+            autoplay: 0,
             rel: 0,
             controls: 0,
             disablekb: 1,

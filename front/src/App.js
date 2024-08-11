@@ -3,7 +3,13 @@ import './styles/css/styles.css';
 import Header from './components/Header';
 import Intro from './components/Intro';
 import Main from './components/Main';
+import Login from './components/Login';
+import Signup from './components/Signup';
+import OrderCreate from './components/OrderCreate';
+import OrderList from './components/OrderList';
 // import Login from './components/members/Login';
+
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
     const [introDone, setIntroDone] = useState(false);
@@ -18,11 +24,11 @@ function App() {
     // 백엔드로 임시 요청을 보내는 부분
     useEffect(() => {
         fetch('http://localhost:5000/test')
-            .then((response) => response.json())
-            .then((data) => {
+            .then(response => response.json())
+            .then(data => {
                 console.log('백엔드 응답:', data.message); // 받은 메시지를 콘솔에 출력
             })
-            .catch((error) => console.error('Error:', error)); // 에러 처리
+            .catch(error => console.error('Error:', error)); // 에러 처리
     }, []);
 
     return (
@@ -53,7 +59,33 @@ function App() {
                     introRef={introRef}
                     introDone={introDone}
                 />
-                <Main introDone={introDone} />
+                <Routes>
+                    {/* <Main introDone={introDone} /> */}
+                    <Route
+                        path="/users/:id"
+                        element={<Main />}
+                    />
+                    {/* <Route
+                        path="/orders/:id"
+                        element={<OrderCreate />}
+                    />
+                    <Route
+                        path="/orderlist/:id"
+                        element={<OrderList />}
+                    /> */}
+                    <Route
+                        path="/login"
+                        element={<Login />}
+                    />
+                    <Route
+                        path="/register"
+                        element={<Signup />}
+                    />
+                    <Route
+                        path="/"
+                        element={<Main introDone={introDone} />}
+                    />
+                </Routes>
             </div>
         </div>
     );

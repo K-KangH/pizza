@@ -24,7 +24,7 @@ function Intro({ introRef, contentRef, introDone }) {
                         gsap.set(test, { height: 'auto', overflowY: 'visible', delay: 1 });
                     },
                 },
-                '<'
+                '<',
             )
             .to(contentRef.current, { opacity: 1, duration: 1.5 });
     };

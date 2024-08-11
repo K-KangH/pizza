@@ -48,6 +48,26 @@ app.get('/test', (req, res) => {
     console.log(responseMessage);
     res.json(responseMessage);
 });
+
+// /login 경로에 대한 GET 요청 처리
+app.get('/login', (req, res) => {
+    res.redirect('http://localhost:3000/login');
+});
+app.get('/register', (req, res) => {
+    res.redirect('http://localhost:3000/register');
+});
+app.get('/orders', (req, res) => {
+    res.redirect('http://localhost:3000/orders');
+});
+app.get('/orders/:id', (req, res) => {
+    const userId = req.params.id;
+    res.redirect('http://localhost:3000/orders/:id');
+});
+app.get('/users/:id', (req, res) => {
+    const userId = req.params.id;
+    res.redirect('http://localhost:3000/login/users/:id');
+});
+
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
