@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, useContext } from 'react';
 import './styles/css/styles.css';
 import Header from './components/Header';
 import Intro from './components/Intro';
@@ -11,6 +11,7 @@ import OrderList from './components/OrderList';
 import MyPage from './components/members/MyPage';
 
 import { Routes, Route } from 'react-router-dom';
+import { AuthProvider, useAuth } from './components/AuthContext';
 
 function App() {
     const [introDone, setIntroDone] = useState(false);
@@ -18,10 +19,11 @@ function App() {
     const contentRef = useRef(null);
     const introRef = useRef(null);
 
-    const handleintroDone = () => {
+    const handleIntroDone = () => {
         setIntroDone(true);
     };
 
+    const { introEnd } = useAuth(); // introEnd 상태를 불러옴!
     // 백엔드로 임시 요청을 보내는 부분
     useEffect(() => {
         fetch('http://localhost:5000/')
@@ -33,66 +35,84 @@ function App() {
     }, []);
 
     return (
-        <div id="wrap">
-            <div
-                id="intro"
-                ref={introRef}
-                style={{
-                    position: 'relative',
-                    height: '100vh',
-                    width: '100%',
-                }}
-            >
-                <Intro
-                    contentRef={contentRef}
-                    introRef={introRef}
-                    introDone={handleintroDone}
-                />
+        <AuthProvider>
+            <div id="wrap">
+                {/* <div
+                    id="intro"
+                    ref={introRef}
+                    style={{
+                        position: 'relative',
+                        height: '100vh',
+                        width: '100%',
+                    }}
+                >
+                    <Intro
+                        contentRef={contentRef}
+                        introRef={introRef}
+                        introDone={handleintroDone}
+                    />
+                </div> */}
+                {!introEnd && ( // introEnd가 false일 때만 Intro를 렌더링
+                    <div
+                        id="intro"
+                        ref={introRef}
+                        style={{
+                            position: 'relative',
+                            height: '100vh',
+                            width: '100%',
+                        }}
+                    >
+                        <Intro
+                            contentRef={contentRef}
+                            introRef={introRef}
+                            introDone={handleIntroDone}
+                        />
+                    </div>
+                )}
+                <div
+                    id="content"
+                    ref={contentRef}
+                    style={{ opacity: '0' }}
+                >
+                    <Header
+                        contentRef={contentRef}
+                        introRef={introRef}
+                        introDone={introDone}
+                    />
+                    <Routes>
+                        {/* <Main introDone={introDone} /> */}
+                        <Route
+                            path="/users/:id"
+                            element={<MyPage />}
+                        />
+                        <Route
+                            path="/orders/:id"
+                            element={<OrderCreate />}
+                        />
+                        <Route
+                            path="/orderlist/:id"
+                            element={<OrderList />}
+                        />
+                        <Route
+                            path="/login"
+                            element={<Login />}
+                        />
+                        <Route
+                            path="/register"
+                            element={<Signup />}
+                        />
+                        <Route
+                            path="/"
+                            element={<Main introDone={introDone} />}
+                        />
+                        <Route
+                            path="/home"
+                            element={<Main1 introDone={introDone} />}
+                        />
+                    </Routes>
+                </div>
             </div>
-
-            <div
-                id="content"
-                ref={contentRef}
-                style={{ opacity: '0' }}
-            >
-                <Header
-                    contentRef={contentRef}
-                    introRef={introRef}
-                    introDone={introDone}
-                />
-                <Routes>
-                    {/* <Main introDone={introDone} /> */}
-                    <Route
-                        path="/users/:id"
-                        element={<MyPage />}
-                    />
-                    <Route
-                        path="/orders/:id"
-                        element={<OrderCreate />}
-                    />
-                    <Route
-                        path="/orderlist/:id"
-                        element={<OrderList />}
-                    />
-                    <Route
-                        path="/login"
-                        element={<Login />}
-                    />
-                    <Route
-                        path="/register"
-                        element={<Signup />}
-                    />
-                    <Route
-                        path="/"
-                        element={<Main introDone={introDone} />}
-                    />
-                    <Route
-                        path="/home"
-                        element={<Main1 introDone={introDone} />}
-                    />
-                </Routes>
-            </div>
-        </div>
+        </AuthProvider>
     );
 }
 

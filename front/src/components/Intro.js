@@ -3,6 +3,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { TextPlugin } from 'gsap/TextPlugin';
 
+import { useAuth } from './AuthContext';
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
 function Intro({ introRef, contentRef, introDone }) {
@@ -10,6 +11,7 @@ function Intro({ introRef, contentRef, introDone }) {
     const bBR = useRef(null);
     const tBR = useRef(null);
     const component = useRef(null);
+    const { handleHideIntro } = useAuth();
 
     const done = () => {
         const test = document.querySelector('body');
@@ -24,7 +26,7 @@ function Intro({ introRef, contentRef, introDone }) {
                         gsap.set(test, { height: 'auto', overflowY: 'visible', delay: 1 });
                     },
                 },
-                '<',
+                '<'
             )
             .to(contentRef.current, { opacity: 1, duration: 1.5 });
     };
@@ -92,6 +94,7 @@ function Intro({ introRef, contentRef, introDone }) {
                     window.scrollTo(0, 0);
                     introDone();
                     done();
+                    handleHideIntro();
                     console.log('intro done');
                     tl.kill();
                 },
