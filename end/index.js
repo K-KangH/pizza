@@ -36,37 +36,46 @@ const port = 5000;
 const dbConnect = require('./config/dbConnect');
 const methodOverride = require('method-override');
 const cors = require('cors');
+require('dotenv').config();
 
 dbConnect();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// test 접근 경로에 대해서 응답!
-app.get('/test', (req, res) => {
-    const responseMessage = { message: 'Hello from the backend!' };
-    console.log(responseMessage);
-    res.json(responseMessage);
-});
+app.use('/register', require('./routes'));
+app.use('/login', require('./routes'));
+app.use('/home', require('./routes'));
+app.use('/', require('./routes'));
+app.use('/users/:id', require('./routes'));
+app.use('/orders/:id', require('./routes'));
+app.use('/orderlist/:id', require('./routes'));
 
-// /login 경로에 대한 GET 요청 처리
-app.get('/login', (req, res) => {
-    res.redirect('http://localhost:3000/login');
-});
-app.get('/register', (req, res) => {
-    res.redirect('http://localhost:3000/register');
-});
-app.get('/orders', (req, res) => {
-    res.redirect('http://localhost:3000/orders');
-});
-app.get('/orders/:id', (req, res) => {
-    const userId = req.params.id;
-    res.redirect('http://localhost:3000/orders/:id');
-});
-app.get('/users/:id', (req, res) => {
-    const userId = req.params.id;
-    res.redirect('http://localhost:3000/login/users/:id');
-});
+// // test 접근 경로에 대해서 응답!
+// app.get('/test', (req, res) => {
+//     const responseMessage = { message: 'Hello from the backend!' };
+//     console.log(responseMessage);
+//     res.json(responseMessage);
+// });
+
+// // /login 경로에 대한 GET 요청 처리
+// app.get('/login', (req, res) => {
+//     res.redirect('http://localhost:3000/login');
+// });
+// app.get('/register', (req, res) => {
+//     res.redirect('http://localhost:3000/register');
+// });
+// app.get('/orders', (req, res) => {
+//     res.redirect('http://localhost:3000/orders');
+// });
+// app.get('/orders/:id', (req, res) => {
+//     const userId = req.params.id;
+//     res.redirect('http://localhost:3000/orders/:id');
+// });
+// app.get('/users/:id', (req, res) => {
+//     const userId = req.params.id;
+//     res.redirect('http://localhost:3000/login/users/:id');
+// });
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);

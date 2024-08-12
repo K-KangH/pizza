@@ -1,6 +1,10 @@
 const asyncHandler = require('express-async-handler');
-const User = require('../models/User');
-const Order = require('../models/Order');
+const User = require('../models/userModel');
+const Order = require('../models/orderModel');
+
+const getMyPage = asyncHandler(async (req, res) => {
+    res.render();
+});
 
 const getOrderCreatePage = asyncHandler(async (req, res) => {
     res.render();
@@ -13,18 +17,26 @@ const getLoginPage = asyncHandler(async (req, res) => {});
 // 회원가입
 const registerUser = asyncHandler(async (req, res) => {
     // 회원가입 로직
-    const newUser = await User.create(req.body);
-    res.redirect(`/users/${newUser._id}`);
+    const { username, userpw, useraddress } = req.body;
+    const userExists = await User.findOne({ username });
+    if (userExists) {
+        return res.status(400).json({ message: '이미 존재하는 사용자입니다.' });
+    } else {
+        const user = await User.create({ username, userpw, useraddress });
+        return res.status(200).json({ message: '가입성공' });
+    }
 });
 
 // 로그인
 const loginUser = asyncHandler(async (req, res) => {
-    // 로그인 로직
-    const user = await User.findOne({ email: req.body.email });
-    if (user && (await user.matchPassword(req.body.password))) {
-        res.redirect(`/users/${user._id}`);
-    } else {
-        res.status(401).json({ message: 'Invalid credentials' });
+    const { username, userpw } = req.body;
+    const user = await User.findOne({ username });
+    if (!user) {
+        return res.status(400).json({ message: '일치하는 사용자가 없습니다.' });
+    }
+    const isMatch = await compare(userpw, user.userpw);
+    if (!isMatch) {
+        return res.status(401).json({ message: '비밀번호가 일치하지 않습니다.' });
     }
 });
 
@@ -107,4 +119,5 @@ module.exports = {
     getOrderCreatePage,
     getRegisterPage,
     getLoginPage,
+    getMyPage,
 };

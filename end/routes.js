@@ -13,7 +13,7 @@ const {
     deleteOrder,
     getRegisterPage,
     getLoginPage,
-} = require('./controllers/userController');
+} = require('./controllers/Controller');
 
 // 회원가입 페이지 접근 및 처리
 router
@@ -29,7 +29,7 @@ router
 
 // 주문 생성 및 전체 주문 조회
 router
-    .route('/orders')
+    .route('/orders/:id')
     .get(getOrderCreatePage) // 주문 작성 페이지 접근
     .post(createOrder); // 주문 작성
 
@@ -42,7 +42,7 @@ router
 
 // 주문 조회, 수정, 삭제
 router
-    .route('/orders/:id')
+    .route('/orderlist/:id')
     .get(getOrder) // (:Id) 주문 조회 (관리자: 모든 주문, 사용자: 자신의 주문만)
     .put(updateOrder) // 특정 주문 수정
     .delete(deleteOrder); // 특정 주문 삭제

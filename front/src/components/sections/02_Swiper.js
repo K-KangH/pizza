@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 import { Autoplay, Pagination, Navigation, EffectCoverflow } from 'swiper/modules';
@@ -6,10 +6,12 @@ import { Autoplay, Pagination, Navigation, EffectCoverflow } from 'swiper/module
 function Slider() {
     // 슬라이더갯수 설정
     const slideCount = 5;
+    const swiperRef = useRef(null);
 
     return (
         <section
             id="slider-container"
+            ref={swiperRef}
             style={{ width: '80%', position: 'absolute', left: '50%', transform: 'translateX(-50%)' }}
         >
             <Swiper

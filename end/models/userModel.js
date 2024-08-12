@@ -3,8 +3,8 @@ const mongoose = require('mongoose');
 const userSchema = new mongoose.Schema(
     {
         username: { type: String, required: true, uinque: true },
-        password: { type: String, required: [true, '전화번호는 필수기입'] },
-        address: { type: String, required: [true, '주소 필수기입'] },
+        userpw: { type: String, required: true },
+        useraddress: { type: String, required: [true, '주소 필수기입'] },
     },
     {
         timestamps: true,

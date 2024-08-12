@@ -1,5 +1,6 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Link } from 'react-router-dom';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,7 +19,12 @@ function Header({ introDone }) {
                 <div className="haeder-gnb">
                     <dl>
                         <dt>
-                            <a href="/">HOME</a>
+                            <a href="/">Intro</a>
+                        </dt>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <Link to="/home">Main</Link>
                         </dt>
                     </dl>
                     <dl>
@@ -28,30 +34,31 @@ function Header({ introDone }) {
                     </dl>
                     <dl>
                         <dt>
-                            <a href="#slider-container">STORY</a>
+                            <a href="/#slider-container">STORY</a>
+                            {/* <Link to="/home#slider-container">STORY</Link> */}
                         </dt>
                     </dl>
                 </div>
                 <div className="haeder-rnb">
                     <dl>
-                        <a href="/register">회원가입</a>
+                        <Link to="/register">회원가입</Link>
                     </dl>
                     <dl>
-                        <a href="/login">로그인</a>
+                        <Link to="/login">로그인</Link>
                     </dl>
                     <dl>
-                        <a href="/OrderCreate">주문하기</a>
+                        <Link to="/orders/:id">주문하기</Link>
                     </dl>
                 </div>
                 <div className="haeder-rnb">
                     <dl>
-                        <span>XXX님 환영합니다.</span>
+                        <Link to="/users/:id">XXX님 환영합니다.</Link>
                     </dl>
                     <dl>
-                        <a href="/mypage">내 정보</a>
+                        <Link to="/orderlist/:id">주문조회</Link>
                     </dl>
                     <dl>
-                        <a href="/OrderCreate">주문하기</a>
+                        <Link to="/orders/:id">주문하기</Link>
                     </dl>
                 </div>
             </div>

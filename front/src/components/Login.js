@@ -1,20 +1,29 @@
 import React, { useState } from 'react';
 // import Header from './Header';
 import axios from 'axios';
-
+import { useNavigate } from 'react-router-dom';
 function Login() {
     const [username, setUsername] = useState('');
     const [userpw, setUserpw] = useState('');
-
-    const loginClick = async e => {
+    const navigate = useNavigate();
+    const loginClick = async (e) => {
         e.preventDefault();
         try {
             const response = await axios.post('/login', { username, userpw });
-            console.log('Login successful:', response.data);
-            // 로그인 성공 후 필요한 작업을 추가할 수 있습니다. 예: 페이지 리디렉션
+            //로그인 성공하면
+            // 로그인성공시 메세지
+            alert(response.data.message);
+            navigate('/home'); // 로그인 성공 시 /home으로 리다이렉션
+
+            // 로그인상태 전역변수
+            // 추가해서 관리하기!
         } catch (error) {
-            // 에러 처리 로직을 추가하세요. 예: 사용자에게 에러 메시지 표시
-            alert('로그인 중 오류가 발생했습니다. 다시 시도해주세요.');
+            if (error.response && error.response.data.message) {
+                // 백엔드에서 설정해둔 메세지 출력
+                alert(error.response.data.message);
+            } else {
+                alert('로그인 중 오류가 발생했습니다.'); // 기타 에러 처리
+            }
         }
     };
 
@@ -60,7 +69,7 @@ function Login() {
                     name="username"
                     id="username"
                     value={username}
-                    onChange={e => setUsername(e.target.value)}
+                    onChange={(e) => setUsername(e.target.value)}
                     required
                 />
                 <label htmlFor="userpw">
@@ -72,7 +81,7 @@ function Login() {
                     name="userpw"
                     id="userpw"
                     value={userpw}
-                    onChange={e => setUserpw(e.target.value)}
+                    onChange={(e) => setUserpw(e.target.value)}
                     required
                 />
                 <button type="submit">로그인</button>
