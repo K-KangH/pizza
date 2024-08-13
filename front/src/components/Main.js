@@ -2,10 +2,10 @@ import Video from './sections/01_Video';
 import Swiper from './sections/02_Swiper';
 import Banner from './sections/05_banner';
 
-function Main({ introDone }) {
+function Main() {
     return (
         <section id="main">
-            <Video introDone={introDone} />
+            <Video />
             <Swiper />
             <Banner />
         </section>

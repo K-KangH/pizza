@@ -5,7 +5,6 @@ import { useAuth } from './components/AuthContext';
 import Header from './components/Header';
 import Intro from './components/Intro';
 import Main from './components/Main';
-
 import Login from './components/Login';
 import Signup from './components/Signup';
 import OrderCreate from './components/OrderCreate';
@@ -16,7 +15,6 @@ function App() {
     const { introEnd } = useAuth(); // introEnd 상태를 불러옴!
     const contentRef = useRef(null);
     const introRef = useRef(null);
-
     return (
         <div id="wrap">
             {!introEnd && (
@@ -25,7 +23,7 @@ function App() {
                     ref={introRef}
                     style={{
                         position: 'relative',
-                        height: '100vh',
+                        height: '300vh',
                         width: '100%',
                     }}
                 >
@@ -39,7 +37,6 @@ function App() {
                 <div
                     id="content"
                     ref={contentRef}
-                    style={{ opacity: '1' }}
                 >
                     <Header />
                     <Routes>
@@ -77,5 +74,4 @@ function App() {
         </div>
     );
 }
-
 export default App;

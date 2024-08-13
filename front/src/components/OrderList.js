@@ -27,20 +27,22 @@ function OrderList() {
             <h1>{id === 'admin' ? '모든 주문' : '내 주문조회'}</h1>
             <dl>
                 {id !== 'admin' &&
-                    orders.map((order) => (
+                    orders.map(order => (
                         <dt key={order._id}>
                             <p>상품명: {order.product}</p>
                             <p>수량: {order.quantity}</p>
                             <p>주문일시: {new Date(order.createdAt).toLocaleString()}</p>
+                            <p>=====================================</p>
                         </dt>
                     ))}
                 {id === 'admin' &&
-                    orders.map((order) => (
+                    orders.map(order => (
                         <dt key={order._id}>
                             <p>주문자: {order.orderbyid}</p>
                             <p>상품명: {order.product}</p>
                             <p>수량: {order.quantity}</p>
                             <p>주문일시: {new Date(order.createdAt).toLocaleString()}</p>
+                            <p>=====================================</p>
                         </dt>
                     ))}
             </dl>
