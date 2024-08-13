@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import Header from './Header';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { useAuth } from './AuthContext';
@@ -14,7 +13,9 @@ function OrderCreate() {
         setQuantity((prevQuantity) => prevQuantity + 1);
     };
     const minusQuantity = () => {
-        setQuantity((prevQuantity) => prevQuantity - 1);
+        if (quantity > 1) {
+            setQuantity((prevQuantity) => prevQuantity - 1);
+        }
     };
 
     // 1보다 작은 값을 입력할 수 없도록 설정
@@ -50,38 +51,52 @@ function OrderCreate() {
     };
 
     return (
-        <div>
+        <div className="ordercreate-container">
             <form
                 className="OrderCreate"
                 onSubmit={orderCreateClick}
             >
                 <h1>주문 페이지</h1>
-                <label htmlFor="product">상품선택:</label>
-                <select
-                    id="product"
-                    value={product}
-                    onChange={handleSelectChange}
-                    required
-                >
-                    <option value="">상품을 선택하세요</option>
-                    <option value="Pizza">피자</option>
-                    <option value="Burger">햄버거</option>
-                    <option value="Pasta">파스타</option>
-                </select>
-                <label>선택된 상품:</label>
-                <input
-                    value={product}
-                    type="text"
-                    readOnly
-                ></input>
-                <label>수량:</label>
-                <div onClick={minusQuantity}>-</div>
-                <input
-                    value={quantity}
-                    type="number"
-                    onChange={Quantityover0}
-                ></input>
-                <div onClick={plusQuantity}>+</div>
+                <div className="flextest">
+                    <label htmlFor="product">상품선택:</label>
+                    <select
+                        id="product"
+                        value={product}
+                        onChange={handleSelectChange}
+                        required
+                    >
+                        <option value="">상품을 선택하세요</option>
+                        <option value="Pizza">피자</option>
+                        <option value="Burger">햄버거</option>
+                        <option value="Pasta">파스타</option>
+                    </select>
+                    <label>선택된 상품:</label>
+                    <input
+                        value={product}
+                        type="text"
+                        readOnly
+                    ></input>
+                    <label>수량:</label>
+                    <div
+                        className="plusminus-btn"
+                        onClick={plusQuantity}
+                        style={{ cursor: 'pointer' }}
+                    >
+                        +
+                    </div>
+                    <input
+                        value={quantity}
+                        type="number"
+                        onChange={Quantityover0}
+                    ></input>
+                    <div
+                        className="plusminus-btn"
+                        onClick={minusQuantity}
+                        style={{ cursor: 'pointer' }}
+                    >
+                        −
+                    </div>
+                </div>
                 <button type="submit">주문하기</button>
             </form>
         </div>

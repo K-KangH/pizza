@@ -23,7 +23,10 @@
         border-radius: 3px;
     }
     .signup-btn {
+        display: flex;
         color: $white;
+        align-items: center;
+        justify-content: center;
         font-weight: 400;
         width: 100px;
         height: 40px;

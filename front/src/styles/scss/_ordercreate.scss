@@ -1,0 +1,17 @@
+.ordercreate-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* 추가된 부분 */
+    height: 100vh; /* 컨테이너를 전체 화면에 걸치도록 */
+    .flextest {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .plusminus-btn {
+        color: $domino-blue;
+        font-size: 50px;
+        font-weight: 600;
+    }
+}

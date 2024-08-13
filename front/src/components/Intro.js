@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { TextPlugin } from 'gsap/TextPlugin';
@@ -6,13 +6,14 @@ import { TextPlugin } from 'gsap/TextPlugin';
 import { useAuth } from './AuthContext';
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
-// function Intro({ introRef, contentRef, introDone }) {
 function Intro() {
     const rBR = useRef(null);
     const bBR = useRef(null);
     const tBR = useRef(null);
     const component = useRef(null);
     const { handleHideIntro } = useAuth();
+    const [visible, setVisible] = useState(true);
+    const scrollRef = useRef(null);
 
     useEffect(() => {
         let ctx = gsap.context(() => {

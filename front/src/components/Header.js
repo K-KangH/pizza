@@ -12,7 +12,7 @@ function Header() {
     const handleOrderClick = (e) => {
         if (!userInfo) {
             e.preventDefault(); // 기본 동작(페이지 이동) 막기
-            alert('회원가입이 필요합니다. 회원가입 페이지로 이동합니다.');
+            alert('회원전용 메뉴입니다. 회원가입 페이지로 이동합니다.');
             navigate('/register'); // 회원가입 페이지로 이동
         }
     };

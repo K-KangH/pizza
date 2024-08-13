@@ -4,9 +4,6 @@
     height: 500px;
     top: 50%;
     left: 50%;
-    // top: 60vh;
-    // left: 50vw;
-    // background-color: aqua; //위치확인용
     transform: translateX(-60%) translateY(-50%);
     .logobox {
         position: absolute;
@@ -88,8 +85,4 @@
     font-weight: 900;
     font-stretch: extra-expanded;
     letter-spacing: -6px;
-}
-
-.demo {
-    height: 3000px;
 }

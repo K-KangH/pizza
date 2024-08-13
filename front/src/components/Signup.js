@@ -89,12 +89,20 @@ function Signup() {
                         />
                     </div>
                     <div className="userAbbress">
-                        <button
+                        {/* <button
                             className="signup-btn"
                             onClick={handleClick}
                         >
                             주소검색
-                        </button>
+                        </button> */}
+                        <div
+                            className="signup-btn"
+                            onClick={handleClick}
+                            role="button"
+                            style={{ cursor: 'pointer' }}
+                        >
+                            주소검색
+                        </div>
                         <input
                             autocomplete="off"
                             id="postcode"

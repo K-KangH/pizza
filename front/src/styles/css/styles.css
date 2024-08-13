@@ -444,10 +444,6 @@ legend {
   letter-spacing: -6px;
 }
 
-.demo {
-  height: 3000px;
-}
-
 #header {
   position: sticky;
   top: 0;
@@ -597,7 +593,10 @@ legend {
   border-radius: 3px;
 }
 .signup-container .signup-btn {
+  display: flex;
   color: #fff;
+  align-items: center;
+  justify-content: center;
   font-weight: 400;
   width: 100px;
   height: 40px;
@@ -659,4 +658,28 @@ legend {
   padding-top: 20px;
   color: #5089ef;
   font-size: var(--fz-title-lg);
+}
+
+.orderlist-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ordercreate-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* 추가된 부분 */
+  height: 100vh; /* 컨테이너를 전체 화면에 걸치도록 */
+}
+.ordercreate-container .flextest {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.ordercreate-container .plusminus-btn {
+  color: #2471b4;
+  font-size: 50px;
+  font-weight: 600;
 }/*# sourceMappingURL=styles.css.map */

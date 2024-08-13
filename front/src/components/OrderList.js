@@ -23,7 +23,7 @@ function OrderList() {
     }, [id]); // id가 변경될 때마다 이 effect가 재실행됨effect가 재실행됨
 
     return (
-        <div>
+        <div className="orderlist-container">
             <h1>{id === 'admin' ? '모든 주문' : '내 주문조회'}</h1>
             <dl>
                 {id !== 'admin' &&
