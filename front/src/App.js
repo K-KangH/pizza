@@ -1,43 +1,26 @@
-import React, { useRef, useState, useEffect, useContext } from 'react';
+import React, { useRef } from 'react';
 import './styles/css/styles.css';
+import { Routes, Route } from 'react-router-dom';
+import { useAuth } from './components/AuthContext';
 import Header from './components/Header';
 import Intro from './components/Intro';
 import Main from './components/Main';
-import Main1 from './components/Main1';
+
 import Login from './components/Login';
 import Signup from './components/Signup';
 import OrderCreate from './components/OrderCreate';
 import OrderList from './components/OrderList';
 import MyPage from './components/members/MyPage';
 
-import { Routes, Route } from 'react-router-dom';
-import { AuthProvider, useAuth } from './components/AuthContext';
-
 function App() {
-    const [introDone, setIntroDone] = useState(false);
-    // const [message, setMessage] = useState('ttttt');
+    const { introEnd } = useAuth(); // introEnd 상태를 불러옴!
     const contentRef = useRef(null);
     const introRef = useRef(null);
 
-    const handleIntroDone = () => {
-        setIntroDone(true);
-    };
-
-    const { introEnd } = useAuth(); // introEnd 상태를 불러옴!
-    // 백엔드로 임시 요청을 보내는 부분
-    useEffect(() => {
-        fetch('http://localhost:5000/')
-            .then((response) => response.json())
-            .then((data) => {
-                console.log('백엔드 응답:', data.message); // 받은 메시지를 콘솔에 출력
-            })
-            .catch((error) => console.error('Error:', error)); // 에러 처리
-    }, []);
-
     return (
-        <AuthProvider>
-            <div id="wrap">
-                {/* <div
+        <div id="wrap">
+            {!introEnd && (
+                <div
                     id="intro"
                     ref={introRef}
                     style={{
@@ -49,38 +32,17 @@ function App() {
                     <Intro
                         contentRef={contentRef}
                         introRef={introRef}
-                        introDone={handleintroDone}
                     />
-                </div> */}
-                {!introEnd && ( // introEnd가 false일 때만 Intro를 렌더링
-                    <div
-                        id="intro"
-                        ref={introRef}
-                        style={{
-                            position: 'relative',
-                            height: '100vh',
-                            width: '100%',
-                        }}
-                    >
-                        <Intro
-                            contentRef={contentRef}
-                            introRef={introRef}
-                            introDone={handleIntroDone}
-                        />
-                    </div>
-                )}
+                </div>
+            )}
+            {introEnd && ( // introEnd가 true 때만 렌더링
                 <div
                     id="content"
                     ref={contentRef}
-                    style={{ opacity: '0' }}
+                    style={{ opacity: '1' }}
                 >
-                    <Header
-                        contentRef={contentRef}
-                        introRef={introRef}
-                        introDone={introDone}
-                    />
+                    <Header />
                     <Routes>
-                        {/* <Main introDone={introDone} /> */}
                         <Route
                             path="/users/:id"
                             element={<MyPage />}
@@ -103,16 +65,16 @@ function App() {
                         />
                         <Route
                             path="/"
-                            element={<Main introDone={introDone} />}
+                            element={<Main />}
                         />
                         <Route
                             path="/home"
-                            element={<Main1 introDone={introDone} />}
+                            element={<Main />}
                         />
                     </Routes>
                 </div>
-            </div>
-        </AuthProvider>
+            )}
+        </div>
     );
 }
 

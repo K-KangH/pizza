@@ -8,7 +8,7 @@ const {
     deleteUser,
     getOrderCreatePage,
     createOrder,
-    getOrder,
+    getAllOrders,
     updateOrder,
     deleteOrder,
     getRegisterPage,
@@ -43,7 +43,7 @@ router
 // 주문 조회, 수정, 삭제
 router
     .route('/orderlist/:id')
-    .get(getOrder) // (:Id) 주문 조회 (관리자: 모든 주문, 사용자: 자신의 주문만)
+    .get(getAllOrders) // (:Id) 주문 조회 (관리자: 모든 주문, 사용자: 자신의 주문만)
     .put(updateOrder) // 특정 주문 수정
     .delete(deleteOrder); // 특정 주문 삭제
 

@@ -480,6 +480,8 @@ legend {
   gap: 20px;
 }
 #header .haeder-rnb a {
+  color: #2471b4;
+  font-size: var(--fz-title-md);
   gap: 30px;
   padding-top: 30px;
   padding-bottom: 30px;
@@ -534,6 +536,7 @@ legend {
 }
 
 .banner {
+  z-index: 1001;
   position: relative;
   width: 200px;
   height: 200px;
@@ -566,4 +569,94 @@ legend {
 }
 .btn-close::after {
   transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.signup-container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: auto;
+  margin: 20px auto;
+  border: 10px solid #2471b4;
+  border-radius: 5px;
+  display: inline-block;
+  align-items: center;
+  justify-self: center;
+  width: 50%;
+  height: 70vh;
+}
+.signup-container .signup {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  gap: 5rem;
+}
+.signup-container input {
+  width: 100%;
+  border: 2px solid #2471b4;
+  border-radius: 3px;
+}
+.signup-container .signup-btn {
+  color: #fff;
+  font-weight: 400;
+  width: 100px;
+  height: 40px;
+  background-color: #a7c4f7;
+  border-radius: 1rem;
+}
+.signup-container #joinbtn {
+  position: relative;
+  bottom: 0%;
+}
+.signup-container h3 {
+  padding-top: 30px;
+  color: #5089ef;
+  font-size: var(--fz-title-lg);
+}
+
+.login-container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: auto;
+  margin: 20px auto;
+  border: 10px solid #2471b4;
+  border-radius: 5px;
+  display: inline-block;
+  align-items: center;
+  justify-self: center;
+  width: 30%;
+  height: 30vh;
+}
+.login-container .login-input {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  gap: 5rem;
+  height: 100%;
+}
+.login-container input {
+  width: 100%;
+  border: 2px solid #2471b4;
+  border-radius: 3px;
+}
+.login-container .login-btn {
+  position: relative;
+  color: #fff;
+  bottom: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: 400;
+  width: 100px;
+  height: 40px;
+  background-color: #a7c4f7;
+  border-radius: 1rem;
+}
+.login-container h2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  color: #5089ef;
+  font-size: var(--fz-title-lg);
 }/*# sourceMappingURL=styles.css.map */

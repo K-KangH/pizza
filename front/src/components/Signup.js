@@ -47,88 +47,84 @@ function Signup() {
     };
 
     return (
-        <div>
-            {/* <Header /> */}
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
+        <div className="signup-container inner">
             <form
                 className="signup"
                 onSubmit={signupClick}
             >
-                <h1>회원가입 페이지</h1>
-                <input
-                    type="text"
-                    placeholder="아이디"
-                    name="username"
-                    id="username"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    required
-                />
-                <label htmlFor="userpw">
-                    <b>Password</b>
-                </label>
-                <input
-                    type="password"
-                    placeholder="비밀번호"
-                    name="userpw"
-                    id="userpw"
-                    value={userpw}
-                    onChange={(e) => setUserpw(e.target.value)}
-                    required
-                />
-                <label htmlFor="pwCheck">
-                    <b>Confirm Password</b>
-                </label>
-                <input
-                    type="password"
-                    placeholder="비밀번호 확인"
-                    name="pwCheck"
-                    id="pwCheck"
-                    value={pwCheck}
-                    onChange={(e) => setPwCheck(e.target.value)}
-                    required
-                />
-                <input
-                    id="postcode"
-                    value={postcode}
-                    placeholder="우편번호"
-                    onClick={handleClick}
-                />
-                <input
-                    id="detailaddress"
-                    value={detailaddress}
-                    placeholder="주소"
-                    onClick={handleClick}
-                />
-                <input
-                    type="text"
-                    value={useraddress}
-                    onChange={(e) => setUserAddress(e.target.value)}
-                    placeholder="상세주소"
-                />
-                <button onClick={handleClick}>주소검색</button>
-                <button type="submit">회원가입</button>
+                <h3>회원가입</h3>
+                <div className="signup">
+                    <div className="userInfo">
+                        <input
+                            autocomplete="off"
+                            type="text"
+                            placeholder="아이디"
+                            name="username"
+                            id="username"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                            required
+                        />
+                        <label htmlFor="userpw"></label>
+                        <input
+                            autocomplete="off"
+                            type="password"
+                            placeholder="비밀번호"
+                            name="userpw"
+                            id="userpw"
+                            value={userpw}
+                            onChange={(e) => setUserpw(e.target.value)}
+                            required
+                        />
+                        <label htmlFor="pwCheck"></label>
+                        <input
+                            autocomplete="off"
+                            type="password"
+                            placeholder="비밀번호 확인"
+                            name="pwCheck"
+                            id="pwCheck"
+                            value={pwCheck}
+                            onChange={(e) => setPwCheck(e.target.value)}
+                            required
+                        />
+                    </div>
+                    <div className="userAbbress">
+                        <button
+                            className="signup-btn"
+                            onClick={handleClick}
+                        >
+                            주소검색
+                        </button>
+                        <input
+                            autocomplete="off"
+                            id="postcode"
+                            value={postcode}
+                            placeholder="우편번호"
+                            onClick={handleClick}
+                        />
+                        <input
+                            autocomplete="off"
+                            id="detailaddress"
+                            value={detailaddress}
+                            placeholder="주소"
+                            onClick={handleClick}
+                        />
+                        <input
+                            autocomplete="off"
+                            type="text"
+                            value={useraddress}
+                            onChange={(e) => setUserAddress(e.target.value)}
+                            placeholder="상세주소"
+                        />
+                    </div>
+                </div>
+                <button
+                    className="signup-btn"
+                    id="joinbtn"
+                    type="submit"
+                >
+                    회원가입
+                </button>
             </form>
         </div>
     );
