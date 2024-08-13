@@ -520,7 +520,7 @@ legend {
 
 .banner-container {
   position: fixed;
-  top: 35%;
+  top: 70%;
   left: 80%;
   transform: translate(-50%, -50%);
   display: flex;
@@ -532,8 +532,8 @@ legend {
 }
 
 .banner {
-  z-index: 1001;
   position: relative;
+  z-index: 1001;
   width: 200px;
   height: 200px;
   background-image: url(../img/floating_son.svg);
@@ -546,6 +546,7 @@ legend {
 }
 
 .btn-close {
+  z-index: 1002;
   position: absolute;
   top: -20%;
   left: 57%;
@@ -558,7 +559,7 @@ legend {
   position: absolute;
   width: 30px;
   height: 2px;
-  background-color: black;
+  background-color: #2471b4;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) rotate(45deg);
