@@ -1,0 +1,45 @@
+.signup-container {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: auto;
+    margin: 20px auto;
+    border: 10px solid $domino-blue;
+    border-radius: 5px;
+    display: inline-block;
+    align-items: center;
+    justify-self: center;
+    width: 50%;
+    height: 70vh;
+    .signup {
+        display: flex;
+        flex-direction: column;
+        justify-self: center;
+        gap: 5rem;
+    }
+    input {
+        width: 100%;
+        border: 2px solid $domino-blue;
+        border-radius: 3px;
+    }
+    .signup-btn {
+        display: flex;
+        color: $white;
+        align-items: center;
+        justify-content: center;
+        font-weight: 400;
+        width: 100px;
+        height: 40px;
+        background-color: $primary-20;
+        border-radius: 1rem;
+    }
+    #joinbtn {
+        position: relative;
+        bottom: 0%;
+    }
+    h3 {
+        padding-top: 30px;
+        color: $primary-40;
+        font-size: var(--fz-title-lg);
+    }
+}

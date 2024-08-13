@@ -12,7 +12,7 @@ function Slider() {
         <section
             id="slider-container"
             ref={swiperRef}
-            style={{ width: '80%', position: 'absolute', left: '50%', transform: 'translateX(-50%)' }}
+            style={{ width: '80%', position: 'absolute', left: '50%', transform: 'translateX(-50%)', display: 'block' }}
         >
             <Swiper
                 spaceBetween={100}

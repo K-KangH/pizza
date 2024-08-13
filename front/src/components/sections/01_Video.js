@@ -68,9 +68,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import YouTube from 'react-youtube';
 import { useInView } from 'react-intersection-observer';
 
-function Video({ introDone }) {
+function Video() {
     const { ref: inViewRef, inView: isVisible } = useInView({
-        threshold: 0.6,
+        threshold: 0.7,
     });
 
     const playerRef = useRef(null);
@@ -85,7 +85,7 @@ function Video({ introDone }) {
         height: '80%',
         width: '95%',
         playerVars: {
-            autoplay: 0,
+            autoplay: 1,
             rel: 0,
             controls: 0,
             disablekb: 1,
@@ -96,14 +96,14 @@ function Video({ introDone }) {
     };
 
     useEffect(() => {
-        if (introDone && playerReady && playerRef.current) {
+        if (playerReady && playerRef.current) {
             if (isVisible) {
                 playerRef.current.playVideo();
             } else {
                 playerRef.current.pauseVideo();
             }
         }
-    }, [isVisible, introDone, playerReady]);
+    }, [isVisible, playerReady]);
 
     return (
         <>

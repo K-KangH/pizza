@@ -1,33 +1,19 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { TextPlugin } from 'gsap/TextPlugin';
 
+import { useAuth } from './AuthContext';
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
-function Intro({ introRef, contentRef, introDone }) {
+function Intro() {
     const rBR = useRef(null);
     const bBR = useRef(null);
     const tBR = useRef(null);
     const component = useRef(null);
-
-    const done = () => {
-        const test = document.querySelector('body');
-        const tl = gsap.timeline();
-        tl.set(introRef.current, { display: 'none' })
-            .set(
-                test,
-                {
-                    height: '100vh',
-                    overflowY: 'hidden',
-                    onComplete: () => {
-                        gsap.set(test, { height: 'auto', overflowY: 'visible', delay: 1 });
-                    },
-                },
-                '<',
-            )
-            .to(contentRef.current, { opacity: 1, duration: 1.5 });
-    };
+    const { handleHideIntro } = useAuth();
+    const [visible, setVisible] = useState(true);
+    const scrollRef = useRef(null);
 
     useEffect(() => {
         let ctx = gsap.context(() => {
@@ -35,12 +21,12 @@ function Intro({ introRef, contentRef, introDone }) {
                 opacity: 0,
                 rotation: 225,
             });
-
             gsap.set(bBR.current, {
                 opacity: 0,
                 y: 300,
                 rotation: 225,
             });
+
             const tl = gsap.timeline({
                 scrollTrigger: {
                     trigger: component.current,
@@ -53,7 +39,6 @@ function Intro({ introRef, contentRef, introDone }) {
                     once: true,
                 },
             });
-
             tl.to(rBR.current, {
                 onStart: () => console.log('redbox start'),
                 duration: 2,
@@ -89,19 +74,20 @@ function Intro({ introRef, contentRef, introDone }) {
                 scale: 0.2,
                 delay: 0,
                 onComplete: () => {
-                    window.scrollTo(0, 0);
-                    introDone();
-                    done();
                     console.log('intro done');
+                    window.scrollTo(0, 0);
+                    // introDone();
+                    // done();
+                    handleHideIntro();
                     tl.kill();
                 },
             });
-        }, component);
+        }, [component]);
 
         return () => {
             ctx.revert(); // cleanup!
         };
-    }, []);
+    }, [handleHideIntro]);
 
     return (
         <div
