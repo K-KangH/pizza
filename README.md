@@ -28,4 +28,4 @@
 
 ---
 ### [간단한 프로젝트 소개](https://victorious-answer-c55.notion.site/483d6006b2c84f45b65e58bfc6e51aff)
-### <a href="https://victorious-answer-c55.notion.site/483d6006b2c84f45b65e58bfc6e51aff" target="_blank">링크</a>
+### <a target="_blank" href="https://victorious-answer-c55.notion.site/483d6006b2c84f45b65e58bfc6e51aff" >링크</a>
