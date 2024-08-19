@@ -18,7 +18,7 @@
  - GSAP 라이브러리 사용법과 활용
  - Swiper 라이브러리 사용법과 활용
  - Node.js 의 npm 활용과 관리
- - MongoDB 의 사용과 Node.js의 Mongoose을 통한 DB 활용
+ - MongoDB 의 사용과 Node.js의 Mongoose을 통한 DB 활용 (CRUD작성)
 
  ---
  ### 이하 미완료 핵심내용
