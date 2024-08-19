@@ -25,3 +25,6 @@
  - DB와 연동되는 CRUD 중 U D 작업
  - 유저 보안성 추가 (JWT 추가)
  - AWS 를 통한 서비스 배포
+
+---
+### [간단한 프로젝트 소개](https://victorious-answer-c55.notion.site/483d6006b2c84f45b65e58bfc6e51aff)
