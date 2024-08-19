@@ -1,10 +1,13 @@
-# Getting Started with Create React App
+# Domino's Pizza 웹 애플리케이션 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+본 프로젝트는 프론트엔드와 백엔드를 나누어 각각 React와 Node.js를 활용하여 웹 애플리케이션을 개발하고 있으며, 
 
-## Available Scripts
+실무를 대비한 기술적 역량 강화를 위해 진행 중인 연습 프로젝트입니다."
 
-In the project directory, you can run:
+---
+## 프로젝트 소개
+
+ 
 
 ### `npm start`
 
